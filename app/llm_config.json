@@ -1,0 +1,56 @@
+{
+  "provider": "ollama",
+  "model": "llama3.2",
+  "temperature": 0.7,
+  "timeout": 30,
+  "max_retries": 1,
+  
+  "fast_path": {
+    "enabled": true,
+    "calculator": true
+  },
+  
+  "openai": {
+    "api_key_env": "OPENAI_API_KEY",
+    "base_url_env": "OPENAI_BASE_URL",
+    "default_model": "gpt-4o"
+  },
+  
+  "anthropic": {
+    "api_key_env": "ANTHROPIC_API_KEY",
+    "default_model": "claude-sonnet-4-20250514"
+  },
+  
+  "system_prompt": "You are a research agent with tools: web_search, read_pdf, summarize_text, calculate. Be concise.",
+
+  "tools": {
+    "web_search": {
+      "base_url": "http://localhost:8888",
+      "max_results": 4,
+      "timeout": 10,
+      "engines": ["google", "bing", "duckduckgo"],
+      "categories": ["general"]
+    },
+    "read_pdf": {
+      "chunk_size": 2000,
+      "chunk_overlap": 200,
+      "max_chunks": 5
+    },
+    "summarize_text": {
+      "max_sentences": 8,
+      "prefix": "📋 Key Points:\n"
+    },
+    "calculate": {
+      "allowed_chars": "0123456789+-*/()., ",
+      "error_message": "Only basic math expressions allowed."
+    }
+  },
+
+  "error_messages": {
+    "file_not_found": "File not found: {path}",
+    "pdf_read_error": "PDF read error: {error}",
+    "search_error": "Search error: {error}",
+    "calculation_error": "Calculation error: {error}",
+    "unsupported_provider": "Unsupported provider: {provider}"
+  }
+}
