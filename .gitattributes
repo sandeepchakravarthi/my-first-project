@@ -1,0 +1,16 @@
+# Force Python as primary language
+*.py linguist-language=Python
+
+# Exclude HTML and other web files from language stats
+*.html linguist-vendored=true
+*.htm linguist-vendored=true
+*.ts linguist-vendored=true
+*.tsx linguist-vendored=true
+*.css linguist-vendored=true
+*.js linguist-vendored=true
+
+# Mark config/docs as non-code
+*.md linguist-documentation
+*.json linguist-data
+*.yaml linguist-data
+*.yml linguist-data
